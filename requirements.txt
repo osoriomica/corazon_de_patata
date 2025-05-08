@@ -16,6 +16,7 @@ psycopg==3.2.7
 psycopg2-binary==2.9.10
 pyasn1==0.6.1
 pyasn1_modules==0.4.1
+python-dotenv==1.1.0
 requests==2.32.3
 requests-oauthlib==2.0.0
 rsa==4.9
