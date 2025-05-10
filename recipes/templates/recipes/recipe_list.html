@@ -8,11 +8,10 @@
 </head>
 <body>
     <h1>Our Recipes</h1>
-    {% for recipe in recipes %}
-        <h2>{{ recipe.title }}</h2>
-        <p>{{ recipe.description }}</p>
-        <p>Written by: {{ recipe.author }}</p>
-        <a href="{% url 'recipe_detail' recipe.id %}">View Recipe</a>
+    {% for recipe in object_list %}
+    <h2>{{ recipe.title }}</h2>
+    <p>{{ recipe.description }}</p>
+    <p>Written by: {{ recipe.author }}</p>
     {% endfor %}
 </body>
 </html>
