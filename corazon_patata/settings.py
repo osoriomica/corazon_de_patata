@@ -31,7 +31,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '.herokuapp.com',  # Allow all subdomains
-    '127.0.0.1'
+    '127.0.0.1',
 ]
 
 

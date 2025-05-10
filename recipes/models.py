@@ -58,3 +58,5 @@ class Rating(models.Model):
     )
     def __str__(self):
         return f'{self.user.username} rated {self.recipe.title}: {self.value}'
+    class Meta:
+        unique_together = ('recipe', 'user')
