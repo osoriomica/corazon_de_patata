@@ -60,3 +60,16 @@ class Rating(models.Model):
         return f'{self.user.username} rated {self.recipe.title}: {self.value}'
     class Meta:
         unique_together = ('recipe', 'user')
+
+class Bookmark(models.Model):
+    """Model representing a bookmarked recipe by a user."""
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
+    bookmarked_on = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ('user', 'recipe')
+        ordering = ['-bookmarked_on']
+        
+    def __str__(self):
+        return f'{self.user.username} bookmarked {self.recipe.title}'
