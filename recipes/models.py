@@ -49,3 +49,12 @@ class Comment(models.Model):
         class Meta:
             ordering = ['-created_at']
     
+class Rating(models.Model):
+    """Model representing a rating for a recipe."""
+    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name='ratings')
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    rating = models.IntegerField(
+        validators=[MinValueValidator(1), MaxValueValidator(5)]
+    )
+    def __str__(self):
+        return f'{self.user.username} rated {self.recipe.title}: {self.value}'
