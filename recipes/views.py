@@ -6,8 +6,7 @@ from .models import Recipe
 
 class RecipesList(generic.ListView):
     """View to list all recipes."""
-    model = Recipe
-    queryset = Recipe.objects.all()
+    queryset = Recipe.objects.filter(status='published').order_by('-created_at')
     template_name = 'recipe_list.html'
     # context_object_name = 'recipes'
     # paginate_by = 10  # Number of recipes per page
