@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corazon de Patata | Recipes</title>
+</head>
+<body>
+    <h1>Our Recipes</h1>
+    {% for recipe in recipes %}
+        <h2>{{ recipe.title }}</h2>
+        <p>{{ recipe.description }}</p>
+        <p>Written by: {{ recipe.author }}</p>
+        <a href="{% url 'recipe_detail' recipe.id %}">View Recipe</a>
+    {% endfor %}
+</body>
+</html>

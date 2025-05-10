@@ -30,11 +30,16 @@ class Recipe(models.Model):
         default='draft'
     )
 
+    class Meta:
+        ordering = ['-created_at', '-author', '-title']
+
     def __str__(self):
         return self.title
 
-    def get_absolute_url(self):
-        return reverse('recipe_detail', args=[str(self.id)])
+    def __str__(self):
+        return f'{self.title} by {self.author.username}'
+    # def get_absolute_url(self):
+    #     return reverse('recipe_detail', args=[str(self.id)])
     
 class Comment(models.Model):
         """Model representing a comment on a recipe."""
@@ -44,10 +49,11 @@ class Comment(models.Model):
         approved = models.BooleanField(default=False)
         created_at = models.DateTimeField(auto_now_add=True)
 
-        def __str__(self):
-            return f'Comment by {self.user.username} on {self.recipe.title}'
         class Meta:
             ordering = ['-created_at']
+
+        def __str__(self):
+            return f'Comment by {self.user.username} on {self.recipe.title}'
     
 class Rating(models.Model):
     """Model representing a rating for a recipe."""
@@ -56,10 +62,11 @@ class Rating(models.Model):
     rating = models.IntegerField(
         validators=[MinValueValidator(1), MaxValueValidator(5)]
     )
-    def __str__(self):
-        return f'{self.user.username} rated {self.recipe.title}: {self.value}'
     class Meta:
         unique_together = ('recipe', 'user')
+
+    def __str__(self):
+        return f'{self.user.username} rated {self.recipe.title}: {self.value}'
 
 class Bookmark(models.Model):
     """Model representing a bookmarked recipe by a user."""
@@ -70,6 +77,6 @@ class Bookmark(models.Model):
     class Meta:
         unique_together = ('user', 'recipe')
         ordering = ['-bookmarked_on']
-        
+
     def __str__(self):
         return f'{self.user.username} bookmarked {self.recipe.title}'
