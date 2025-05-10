@@ -19,7 +19,8 @@ from django.urls import path, include
 from recipes.views import RecipesList  
 
 urlpatterns = [
-    path("", include('recipes.urls'), name="recipes-urls"),  # Include URLs from the recipes app
     path('admin/', admin.site.urls),
+    path('summernote/', include('django_summernote.urls')),  # Include URLs for the Summernote editor
+    path("", include('recipes.urls'), name="recipes-urls"),  # Include URLs from the recipes app
     # path('recipes/', recipes, name='recipes'),  # URL for the recipes view
 ]
