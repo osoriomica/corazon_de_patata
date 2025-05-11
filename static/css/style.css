@@ -1,0 +1,88 @@
+/* Font variables */
+@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&family=Lato:ital,wght@0,300;0,700;1,300;1,700&display=swap');
+
+/* CSS VARIABLES using var() */
+:root {
+    --body-font: 'Lato', sans-serif;
+    --heading-font: 'Fredericka the Great', cursive;
+}
+/* Global styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--heading-font);
+}
+p {
+    font-family: var(--body-font);
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+button {
+    font-family: var(--body-font);
+    cursor: pointer;
+}
+
+/* Base styling */
+body {
+    font-family: var(--body-font);
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+/* Navbar */
+.navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+    font-family: var(--heading-font);
+}
+
+/* Recipe Cards */
+.recipe-card {
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.recipe-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.recipe-card .card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .recipe-card .card-img-top {
+        height: 180px;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+}
+
+/* Footer */
+footer {
+    margin-top: 3rem;
+    padding: 2rem 0;
+    color: #333;
+}

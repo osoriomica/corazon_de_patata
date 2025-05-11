@@ -1,4 +1,5 @@
-# corazon_de_patata
+# CORAZON DE PATATA
+![Resposive Corazon de Patata]()
 
 A recipe-blog dedicated to Indo-Mex recipes for fellow foodies and culinary explorers.
 
@@ -48,4 +49,12 @@ This will store all recipe information:
 - Recipe | FK Recipe
 - Created date | DateTime
 
+
+Technologies Used:
+Fonts: [fonts.google.com](https://fonts.google.com/)
+AI generated images: [Microsoft Copilot](https://copilot.microsoft.com/)
+
+References:
+- [Bootstrap 5.3](https://getbootstrap.com/docs/5.3/getting-started/download/)
+- [Django Docs](https://docs.djangoproject.com/en/4.2/ref/models/fields/#model-field-types)
 
