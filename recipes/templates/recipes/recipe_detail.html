@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+<!-- Meta -->
+{% block title %}{{ recipe.title }}{% endblock %}
+{% block description %}{{ recipe.description }}{% endblock %}
+{% block keywords %}recipe, details, {{ recipe.title }}{% endblock %}
+<!-- recipe_detail.html -->
+{% block content %}
+{% load static %}
+<div class="container mt-5">
+    <!-- recipe header section -->
+    <div class="row mb-4">
+        <div class="col-md-8">
+            <h1 class="display-4">{{ recipe.title }}</h1>
+            <p class="text-muted">
+                By {{ recipe.author.username }} •
+                Posted on {{ recipe.created_at|date:"F d, Y" }} •
+                {% if recipe.updated_at != recipe.created_at %}
+                Updated on {{ recipe.updated_at|date:"F d, Y" }} •
+                {% endif %}
+            </p>
+        </div>
+        <div class="col-md-4 text-md-end">
+        </div>
+        <!-- recipe image and description -->
+        <div class="row mb-5">
+            <div class="col-md-5">
+                <!-- Recipe image -->
+                <div class="recipe-image-container mb-3">
+                    <img src="{% static 'images/default.jpeg' %}" alt="{{ recipe.title }}"
+                        class="img-fluid rounded shadow">
+                </div>
+            </div>
+            <div class="col-md-7">
+                <!-- Recipe description -->
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h3 class="card-title">About this Recipe</h3>
+                        <p class="card-text">{{ recipe.description|safe }}</p>
+                        <!-- ingredients card -->
+                        <div class="card shadow-sm h-100">
+                            <div class="card-header bg-light">
+                                <h3 class="card-title mb-0">Ingredients</h3>
+                            </div>
+                            <div class="card-body">
+                                {{ recipe.ingredients|safe }}
+                            </div>
+                        </div>
+                        <!-- Instructions card -->
+                        <div class="card shadow-sm h-100">
+                            <div class="card-header bg-light">
+                                <h3 class="card-title mb-0">Instructions</h3>
+                            </div>
+                            <div class="card-body">
+                                {{ recipe.instructions|safe }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- Recipe Comments Section to be added with crispy forms-->
+
+    {% endblock %}
