@@ -74,41 +74,45 @@
         </div>
     </nav>
     <!-- Messages -->
-    {% if messages %}
-    <div class="message-container mt-3">
-        {% for message in messages %}
-        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
-            {{ message }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    <!-- displaying Django messages -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                {% for message in messages %}
+                <div class="alert {{ message.tags }} alert-dismissible
+          fade show" id="msg" role="alert">
+                    {{ message | safe }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endfor %}
+            </div>
         </div>
-        {% endfor %}
     </div>
-    {% endif %}
     <!-- Main Content -->
     <main class="container mt-4">
         {% if user.is_authenticated %}
-            {% if request.path == logout_url %}
-            <div class="row">
-                <div class="col-md-12">
-                    <h1>Leaving so soon?</h1>
-                    <p>We hope to see you again soon. Hasta la vista, {{ user.username }}!</p>
-                </div>
+        {% if request.path == logout_url %}
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Leaving so soon?</h1>
+                <p>We hope to see you again soon. Hasta la vista, {{ user.username }}!</p>
             </div>
-            {% elif request.path == login_url %}
-            <div class="row">
-                <div class="col-md-12">
-                    <h1>Welcome back, {{ user.username }}!</h1>
-                    <p>We missed you! Explore our collection of Indo-Mexican recipes and share your culinary creations.</p>
-                </div>
+        </div>
+        {% elif request.path == login_url %}
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Welcome back, {{ user.username }}!</h1>
+                <p>We missed you! Explore our collection of Indo-Mexican recipes and share your culinary creations.</p>
             </div>
-            {% else %}
-            <div class="row">
-                <div class="col-md-12">
-                    <h1>Welcome, {{ user.username }}!</h1>
-                    <p>Explore our collection of Indo-Mexican recipes and share your culinary creations.</p>
-                </div>
+        </div>
+        {% else %}
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Welcome, {{ user.username }}!</h1>
+                <p>Explore our collection of Indo-Mexican recipes and share your culinary creations.</p>
             </div>
-            {% endif %}
+        </div>
+        {% endif %}
         {% else %}
         <div class="row">
             <div class="col-md-12">
