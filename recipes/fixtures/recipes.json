@@ -1,0 +1,178 @@
+[
+    {
+        "model": "recipes.recipe",
+        "pk": null,
+        "fields": {
+            "title": "Pico de Gallo",
+            "slug": "pico-de-gallo",
+            "author": 1,
+            "description": " (Mexican) Green, White and Red. A spoonful of Mexico in every bite! ",
+            "average_rating": 4,
+            "ingredients": "<ul><li>Tomatoes,</li> <li>onions,</li> <li>cilantro,</li> <li>jalapeños,</li> <li>lime juice,</li> <li>salt</li></ul>",
+            "instructions": "<ol><li>Chop all ingredients.</li><li>mix together.</li><li>Serve with tortilla chips.</li></ol>",
+            "created_at": "2023-09-15T14:23:45.123456Z",
+            "updated_at": "2024-01-15T14:23:45.123456Z",
+            "status": "published"
+        }
+    },
+    {
+        "model": "recipes.recipe",
+        "pk": null,
+        "fields": {
+            "title": "Guacamole",
+            "slug": "guacamole",
+            "author": 1,
+            "description": " (Mexican) Avocado, lime, and cilantro. A creamy delight! ",
+            "average_rating": 5,
+            "ingredients": "<ul><li>Avocados</li><li>Lime juice</li><li>Cilantro</li><li>Onions</li><li>Jalapeños</li></ul>",
+            "instructions": "<ol><li>Mash avocados.</li><li>Mix in other ingredients.</li><li>Serve with tortilla chips.</li></ol>",
+            "created_at": "2023-09-15T14:23:45.123456Z",
+            "updated_at": "2024-01-15T14:23:45.123456Z",
+            "status": "published"
+        }
+    }, 
+    {
+        "model": "recipes.recipe",
+        "pk": null,
+        "fields": {
+            "title": "Salsa Verde",
+            "slug": "salsa-verde",
+            "author": 1,
+            "description": " (Mexican) Green salsa with a kick! ",
+            "average_rating": 4,
+            "ingredients": "<ul><li>Tomatillos</li><li>Jalapeños</li><li>Cilantro</li><li>Lime juice</li></ul>",
+            "instructions": "<ol><li>Roast tomatillos and jalapeños.</li><li>Blend with cilantro and lime juice.</li><li>Serve with tortilla chips.</li></ol>",
+            "created_at": "2023-09-15T14:23:45.123456Z",
+            "updated_at": "2024-01-15T14:23:45.123456Z",
+            "status": "published"
+        }
+    },
+    {
+        "model": "recipes.recipe",
+        "pk":null,
+        "fields": {
+            "title": "Roti",
+            "slug": "roti",
+            "author": 2,
+            "description": " (Indian) Soft, unleavened flatbread from India. ",
+            "average_rating": 4,
+            "ingredients": "<ul><li>Whole wheat flour</li><li>Water</li><li>Salt</li></ul>",
+            "instructions": "<ol><li>Mix flour, water, and salt to form a dough.</li><li>Roll into flat circles.</li><li>Cook on a hot griddle until puffed and golden.</li></ol>",
+            "created_at": "2023-09-15T14:23:45.123456Z",
+            "updated_at": "2024-01-15T14:23:45.123456Z",
+            "status": "published"
+        }
+    },
+    {
+        "model": "recipes.recipe",
+        "pk": null,
+        "fields": {
+            "title": "Naan",
+            "slug": "naan",
+            "author": 2,
+            "description": " (Indian) Soft, leavened flatbread from India. ",
+            "average_rating": 5,
+            "ingredients": "<ul><li>All-purpose flour</li><li>Yeast</li><li>Yogurt</li><li>Water</li></ul>",
+            "instructions":"<ol> <li>Mix ingredients to form a dough.</li><li>Let rise, roll into flat circles, and cook in a tandoor or on a hot griddle.</li></ol>",
+            "created_at": "2023-09-15T14:23:45.123456Z",
+            "updated_at": "2024-01-15T14:23:45.123456Z",
+            "status": "published"
+        }
+    },
+    {
+        "model": "recipes.recipe",
+        "pk": null,
+        "fields": {
+            "title": "Kheer (Indian Rice Pudding)",
+            "slug": "kheer",
+            "author": 2,
+            "description": " (Indian) A creamy, sweet rice pudding flavored with cardamom and garnished with nuts. ",
+            "average_rating": 5,
+            "ingredients": "<ul><li>Rice</li><li>Milk</li><li>Sugar</li><li>Cardamom</li><li>Nuts (almonds, pistachios)</li></ul>",
+            "instructions": "<ol> <li>Cook rice in milk until soft.</li><li>Add sugar and cardamom.</li><li>Garnish with nuts and serve warm or chilled.</li></ol>",
+            "created_at": "2023-09-15T14:23:45.123456Z",
+            "updated_at": "2024-01-15T14:23:45.123456Z",
+            "status": "published"
+        }  
+    },
+    {
+        "model": "recipes.recipe",
+        "pk": null,
+        "fields": {
+            "title": "Chole Bhature",
+            "slug": "chole-bhature",
+            "author": 2,
+            "description": " (Indian) Spicy chickpeas served with deep-fried bread. ",
+            "average_rating": 4,
+            "ingredients": "<ul><li>Chickpeas</li><li>Onions</li><li>Tomatoes</li><li>Spices</li><li>Flour</li></ul>",
+            "instructions": "<ol> <li>Cook chickpeas with spices.</li><li>Make dough for bhature, roll out, and deep fry.</li><li>Serve together.</li></ol>",
+            "created_at": "2023-09-15T14:23:45.123456Z",
+            "updated_at": "2024-01-15T14:23:45.123456Z",
+            "status": "published"
+        }
+    },
+    {
+        "model": "recipes.recipe",
+        "pk": null,
+        "fields": {
+            "title": "Paneer Butter Masala",
+            "slug": "paneer-butter-masala",
+            "author": 2,
+            "description": " (Indian) Creamy tomato-based curry with paneer. ",
+            "average_rating": 5,
+            "ingredients": "<ul><li>Paneer</li><li>Tomatoes</li><li>Cream</li><li>Butter</li><li>Spices</li></ul>",
+            "instructions": "<ol> <li>Cook tomatoes and spices to make a sauce.</li><li>Add paneer and cream.</li><li>Serve with naan or rice.</li></ol>",
+            "created_at": "2023-09-15T14:23:45.123456Z",
+            "updated_at": "2024-01-15T14:23:45.123456Z",
+            "status": "published"
+        }
+    },
+    {
+        "model": "recipes.recipe",
+        "pk": null,
+        "fields": {
+            "title": "Tacos",
+            "slug": "tacos",
+            "author": 1,
+            "description": " (Mexican) Soft or hard shell filled with your choice of meat and toppings. ",
+            "average_rating": 4,
+            "ingredients": "<ul><li>Tortillas</li><li>Meat (chicken, beef, pork)</li><li>Lettuce</li><li>Cheese</li><li>Salsa</li></ul>",
+            "instructions": "<ol> <li>Cook meat, fill tortillas, and top with desired ingredients.</li></ol>",
+            "created_at": "2023-09-15T14:23:45.123456Z",
+            "updated_at": "2024-01-15T14:23:45.123456Z",
+            "status": "published"
+        }
+    },
+    {
+        "model": "recipes.recipe",
+        "pk": null,
+        "fields": {
+            "title": "Burrito",
+            "slug": "burrito",
+            "author": 1,
+            "description": " (Mexican) Flour tortilla wrapped around a filling of rice, beans, and protein. ",
+            "average_rating": 5,
+            "ingredients": "<ul><li>Flour tortillas</li><li>Rice</li><li>Beans</li><li>Protein of choice(chicken, beef, tofu, mushrooms)</li><li>Cheese</li></ul>",
+            "instructions": "<ol> <li>Cook rice and beans.</li><li>Fill tortillas with rice, beans, and protein.</li><li>Roll up and serve.</li></ol>",
+            "created_at": "2023-09-15T14:23:45.123456Z",
+            "updated_at": "2024-01-15T14:23:45.123456Z",
+            "status": "published"
+        }
+    },
+    {
+        "model": "recipes.recipe",
+        "pk": null,
+        "fields": {
+            "title": "Enchiladas",
+            "slug": "enchiladas",
+            "author": 1,
+            "description": " (Mexican) Rolled tortillas filled with your favourite protein and topped with a spicy tomato sauce, creme fraiche and tangy feta cheese. ",
+            "average_rating": 4,
+            "ingredients": "<ul><li>Tortillas</li><li>Meat (chicken, beef) or veg protein (mushrooms, tofu)</li><li>Enchilada sauce</li><li>Creme fraiche</li><li>Feta cheese</li></ul>",
+            "instructions": "<ol> <li>Fill tortillas with meat, roll up, and place in a baking dish.</li><li>Top with enchilada sauce, creme fraiche and cheese.</li><li>Bake until bubbly.</li></ol>",
+            "created_at": "2023-09-15T14:23:45.123456Z",
+            "updated_at": "2024-01-15T14:23:45.123456Z",
+            "status": "published"
+        }
+    }         
+]
