@@ -54,6 +54,7 @@ Technologies Used:
 Fonts: [fonts.google.com](https://fonts.google.com/)
 AI generated images: [Microsoft Copilot](https://copilot.microsoft.com/)
 Image converter: [cloudconvert](https://cloudconvert.com/png-to-ico)
+Django Allauth Authentication: [allauth](https://docs.allauth.org/en/latest/installation/quickstart.html)
 
 References:
 - [Bootstrap 5.3](https://getbootstrap.com/docs/5.3/getting-started/download/)

@@ -74,16 +74,25 @@ body {
 }
 
 /* Log in/out buttons */
+.btn,
 .btn-signup {
-    background-color: var(--highlights1);
-    color: white;
-    border-radius: 0.5rem;
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    transition: background-color 0.3s, transform 0.3s;
+    background-color: var(--highlights1) !important; 
+    color: white !important;
+    border: none !important;
+    border-radius: 0.5rem !important;
+    padding: 0.5rem 1rem !important;
+    font-size: 1rem !important;
+    transition: background-color 0.3s, transform 0.3s !important;
 }
-
-
+.btn:hover,
+.btn-signup:hover {
+    background-color: var(--highlights2) !important;
+    transform: translateY(-2px) !important;
+}
+.btn:active,
+.btn-signup:active {
+    transform: translateY(0) !important;
+}
 /* Recipe Cards */
 .card {
     transition: transform 0.3s, box-shadow 0.3s;
