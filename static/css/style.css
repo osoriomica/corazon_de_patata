@@ -73,6 +73,17 @@ body {
     max-width: 2.6rem;
 }
 
+/* Log in/out buttons */
+.btn-signup {
+    background-color: var(--highlights1);
+    color: white;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+
 /* Recipe Cards */
 .card {
     transition: transform 0.3s, box-shadow 0.3s;
@@ -105,7 +116,23 @@ body {
 
 /* Footer */
 footer {
-    margin-top: 3rem;
+    margin-top: auto;
     padding: 2rem 0;
-    color:  var(--dark-text);
+    color: var(--dark-text);
+    position: relative;
+    width: 100%;
+    background-color: var(--navigationbg);
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
 }
