@@ -56,7 +56,8 @@
                     </li>
                     {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page" href="{% url 'account_logout' %}">Logout</a>
+                        <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page"
+                            href="{% url 'account_logout' %}">Logout</a>
                     </li>
                     {% else %}
                     <li class="nav-item">
@@ -64,7 +65,8 @@
                             href="{% url 'account_signup' %}">Register</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page" href="{% url 'account_login' %}">Login</a>
+                        <a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page"
+                            href="{% url 'account_login' %}">Login</a>
                     </li>
                     {% endif %}
                 </ul>
@@ -84,7 +86,37 @@
     {% endif %}
     <!-- Main Content -->
     <main class="container mt-4">
-        
+        {% if user.is_authenticated %}
+            {% if request.path == logout_url %}
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Leaving so soon?</h1>
+                    <p>We hope to see you again soon. Hasta la vista, {{ user.username }}!</p>
+                </div>
+            </div>
+            {% elif request.path == login_url %}
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Welcome back, {{ user.username }}!</h1>
+                    <p>We missed you! Explore our collection of Indo-Mexican recipes and share your culinary creations.</p>
+                </div>
+            </div>
+            {% else %}
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Welcome, {{ user.username }}!</h1>
+                    <p>Explore our collection of Indo-Mexican recipes and share your culinary creations.</p>
+                </div>
+            </div>
+            {% endif %}
+        {% else %}
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Welcome to Corazon de Patata CookBlog!</h1>
+                <p>You are not logged in.</p>
+            </div>
+        </div>
+        {% endif %}
         {% block content %}
         {% endblock %}
     </main>
