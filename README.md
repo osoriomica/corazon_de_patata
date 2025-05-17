@@ -49,6 +49,9 @@ This will store all recipe information:
 - Recipe | FK Recipe
 - Created date | DateTime
 
+bugs
+Integrity error 
+fix: make migratios/migrate to reflect changes
 
 Technologies Used:
 Fonts: [fonts.google.com](https://fonts.google.com/)

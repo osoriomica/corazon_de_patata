@@ -73,6 +73,26 @@ body {
     max-width: 2.6rem;
 }
 
+/* Log in/out buttons */
+.btn,
+.btn-signup {
+    background-color: var(--highlights1) !important; 
+    color: white !important;
+    border: none !important;
+    border-radius: 0.5rem !important;
+    padding: 0.5rem 1rem !important;
+    font-size: 1rem !important;
+    transition: background-color 0.3s, transform 0.3s !important;
+}
+.btn:hover,
+.btn-signup:hover {
+    background-color: var(--highlights2) !important;
+    transform: translateY(-2px) !important;
+}
+.btn:active,
+.btn-signup:active {
+    transform: translateY(0) !important;
+}
 /* Recipe Cards */
 .card {
     transition: transform 0.3s, box-shadow 0.3s;
@@ -90,6 +110,54 @@ body {
     object-fit: cover;
 }
 
+/* Star rating */
+.star-rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    margin-bottom: 1.5rem;
+}
+.star-rating input {
+    display: none;
+}
+.star-rating label {
+    font-size: 2rem;
+    color: #ccc;
+    cursor: pointer;
+    padding: 0 .2rem;
+    transition: color 0.2s;
+}
+
+/* shpw gold stars for selected rating and all stars to its right */
+.star-rating input:checked ~ label, 
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+    color: #ffc107; /* Gold */
+}
+
+/* display selected stars when hovering stops */
+.star-rating input:checked + label:hover,
+.star-rating input:checked ~ label:hover,
+.star-rating label:hover ~ input:checked ~ label,
+.star-rating input:checked ~ label:hover ~ label{
+    color: #ffdb70; /* Light Gold */
+}
+/* Read-only stars for displaying the average rating */
+.average-rating {
+    margin-top: 0.7rem;
+}
+.average-rating .stars{
+    color: #ddd;
+    font-size: 1.5rem;
+}
+.average-rating .stars filled {
+    color: #ffc107; /* Gold */
+}
+.rating-count {
+    font-size: 1rem;
+    color: var(--dark-text);
+    margin-left: .7rem;
+}
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
@@ -105,7 +173,23 @@ body {
 
 /* Footer */
 footer {
-    margin-top: 3rem;
+    margin-top: auto;
     padding: 2rem 0;
-    color:  var(--dark-text);
+    color: var(--dark-text);
+    position: relative;
+    width: 100%;
+    background-color: var(--navigationbg);
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
 }

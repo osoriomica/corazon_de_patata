@@ -5,6 +5,9 @@
 {% block title %}{{ recipe.title }}{% endblock %}
 {% block description %}{{ recipe.description }}{% endblock %}
 {% block keywords %}recipe, details, {{ recipe.title }}{% endblock %}
+<!-- extra css -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 <!-- recipe_detail.html -->
 {% block content %}
 {% load static %}
@@ -20,6 +23,28 @@
                 Updated on {{ recipe.updated_at|date:"F d, Y" }} •
                 {% endif %}
             </p>
+
+            <!-- Average Rating Display -->
+            <div class="average-rating">
+                <div class="d-flex align-items-center">
+                    <div class="stars">
+                        {% with avg_rating=recipe.average_rating %}
+                        {% for i in "12345" %}
+                        {% if forloop.counter <= avg_rating|floatformat:"0"|add:"0" %} <i class="fas fa-star filled">
+                            </i>
+                            {% elif forloop.counter <= avg_rating|add:"0.5"|floatformat:"0"|add:"0" %} <i
+                                class="fas fa-star-half-alt filled"></i>
+                                {% else %}
+                                <i class="far fa-star"></i>
+                                {% endif %}
+                                {% endfor %}
+                                {% endwith %}
+                    </div>
+                    <span class="ml-2">{{ recipe.average_rating|floatformat:1 }}/5</span>
+                    <span class="rating-count">({{ recipe.ratings.count }} ratings)</span>
+                </div>
+            </div>
+
         </div>
         <div class="col-md-4 text-md-end">
         </div>
@@ -61,7 +86,46 @@
             </div>
         </div>
     </div>
-    <!-- Recipe Comments Section to be added with crispy forms-->
+    <!-- recipe rating and actions -->
+    <div class="col-md-4">
+        <!-- User Rating Form -->
+        {% if user.is_authenticated %}
+          <div class="card shadow-sm mb-4">
+            <div class="card-body">
+              <h4>Rate this recipe</h4>
+              <form method="post" action="{% url 'rate_recipe' recipe.id %}" id="rating-form">
+                {% csrf_token %}
+                <div class="star-rating">
+                  <input type="radio" name="rating" id="star5" value="5" {% if user_rating.rating == 5 %}checked{% endif %}>
+                  <label for="star5" title="5 stars"><i class="fas fa-star"></i></label>
+                  
+                  <input type="radio" name="rating" id="star4" value="4" {% if user_rating.rating == 4 %}checked{% endif %}>
+                  <label for="star4" title="4 stars"><i class="fas fa-star"></i></label>
+                  
+                  <input type="radio" name="rating" id="star3" value="3" {% if user_rating.rating == 3 %}checked{% endif %}>
+                  <label for="star3" title="3 stars"><i class="fas fa-star"></i></label>
+                  
+                  <input type="radio" name="rating" id="star2" value="2" {% if user_rating.rating == 2 %}checked{% endif %}>
+                  <label for="star2" title="2 stars"><i class="fas fa-star"></i></label>
+                  
+                  <input type="radio" name="rating" id="star1" value="1" {% if user_rating.rating == 1 %}checked{% endif %}>
+                  <label for="star1" title="1 star"><i class="fas fa-star"></i></label>
+                </div>
+                
+                <div class="text-right">
+                  <button type="submit" class="btn btn-primary">Submit Rating</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        {% else %}
+          <div class="card shadow-sm mb-4">
+            <div class="card-body">
+              <p><a href="{% url 'account_login' %}?next={{ request.path }}">Log in</a> to rate this recipe.</p>
+            </div>
+          </div>
+        {% endif %}
+
     <!-- Displaying count of comments -->
     <div class="row">
         <div class="col-12">
@@ -78,7 +142,7 @@
     <div class="row">
         <div class="col-md-8 card mb-4  mt-3 ">
             <div class="card-body">
-            <h3>Comments:</h3>
+                <h3>Comments:</h3>
                 {% if comments %}
                 {% for comment in comments %}
                 <div class="p-2 comments
