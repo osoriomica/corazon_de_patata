@@ -139,4 +139,4 @@ def rate_recipe(request, recipe_id):
     # Handle non-AJAX request
     messages.success(request, message)
     return redirect('recipe_detail', slug=recipe.slug)
-    # Redirect to the recipe detail page
+    # Redirect to the recipe detail page with the updated average rating

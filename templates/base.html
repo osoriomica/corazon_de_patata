@@ -93,36 +93,37 @@
         {% if user.is_authenticated %}
         {% if request.path == logout_url %}
         <div class="row">
-            <div class="col-md-12">
-                <h1>Leaving so soon?</h1>
-                <p>We hope to see you again soon. Hasta la vista, {{ user.username }}!</p>
+            <div class="col-md-8 ms-3">
+                <p class ="custom-greeting">Leaving so soon?</p>
+                <p>Hasta la vista, {{ user.username }}!</p>
             </div>
         </div>
         {% elif request.path == login_url %}
         <div class="row">
-            <div class="col-md-12">
-                <h1>Welcome back, {{ user.username }}!</h1>
-                <p>We missed you! Explore our collection of Indo-Mexican recipes and share your culinary creations.</p>
+            <div class="col-md-8 ms-3">
+                <p class ="custom-greeting">Welcome back, {{ user.username }}!</p>
             </div>
         </div>
         {% else %}
         <div class="row">
-            <div class="col-md-12">
-                <h1>Welcome, {{ user.username }}!</h1>
-                <p>Explore our collection of Indo-Mexican recipes and share your culinary creations.</p>
+            <div class="col-md-8 ms-3">
+                <p class ="custom-greeting">Welcome, {{ user.username }}!</p>
             </div>
         </div>
         {% endif %}
         {% else %}
         <div class="row">
-            <div class="col-md-12">
-                <h1>Welcome to Corazon de Patata CookBlog!</h1>
+            <div class="col-md-8 ms-3">
+                <p class ="custom-greeting">Welcome to Corazon de Patata CookBlog!</p>
                 <p>You are not logged in.</p>
             </div>
         </div>
         {% endif %}
         {% block content %}
         {% endblock %}
+        <div class="col-12 text-md-center">
+            <img src="{% static 'images/logo-lines.png' %}" alt="decorative image" class="img-fluid align-items-center">
+        </div>
     </main>
     <!-- Footer -->
     <footer class="bg-light mt-5 py-4">
