@@ -1,10 +1,10 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.views import generic
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_POST
 from django.http import HttpResponseRedirect
-from .models import Recipe, Rating
+from .models import Recipe, Rating, Comment
 from .forms import CommentForm
 
 # Create your views here.
@@ -65,6 +65,28 @@ def recipe_detail(request, slug):
          'user_rating': user_rating, 
         }
     )
+
+def comment_edit(request, slug, comment_id):
+    """
+    view to edit comments
+    """
+    if request.method == "POST":
+
+        queryset = Recipe.objects.filter(status='published')
+        recipe = get_object_or_404(queryset, slug=slug)
+        comment = get_object_or_404(Comment, pk=comment_id)
+        comment_form = CommentForm(data=request.Recipe, instance=comment)
+
+        if comment_form.is_valid() and comment.user == request.user:
+            comment = comment_form.save(commit=False)
+            comment.recipe = recipe
+            comment.approved = False
+            comment.save()
+            messages.add_message(request, messages.SUCCESS, 'Comment Updated!')
+        else:
+            messages.add_message(request, messages.ERROR, 'Error updating comment!')
+
+    return HttpResponseRedirect(reverse('recipe_detail', args=[slug]))
 
 @login_required
 @require_POST
