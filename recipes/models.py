@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import MinValueValidator, MaxValueValidator
-# from cloudinary.models import CloudinaryField
+from cloudinary.models import CloudinaryField
 from django.urls import reverse
 from django.db.models import Avg
 
@@ -11,7 +11,7 @@ class Recipe(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='recipes')
-    # cloudinary_image = CloudinaryField('image', default='placeholder')
+    featured_image = CloudinaryField('image', default='placeholder')
     description = models.TextField()
     ingredients = models.TextField()
     instructions = models.TextField()
