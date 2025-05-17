@@ -49,12 +49,26 @@ This will store all recipe information:
 - Recipe | FK Recipe
 - Created date | DateTime
 
+Fixtures:
+// This file contains a list of recipes with their details.
+// Each recipe includes the title, slug, author, description, ingredients, instructions, created_at, updated_at, and status.
+// The recipes are categorized into two cuisines: Mexican and Indian.
+// The author field references the user who created the recipe.
+// The status field indicates whether the recipe is published or not.
+// The created_at and updated_at fields are in ISO 8601 format.
+// The ingredients and instructions are formatted in HTML lists.
+// The recipes are stored in a JSON format suitable for Django fixtures.
+
+bugs
+Integrity error 
+fix: make migratios/migrate to reflect changes
 
 Technologies Used:
 Fonts: [fonts.google.com](https://fonts.google.com/)
 AI generated images: [Microsoft Copilot](https://copilot.microsoft.com/)
 Image converter: [cloudconvert](https://cloudconvert.com/png-to-ico)
 Django Allauth Authentication: [allauth](https://docs.allauth.org/en/latest/installation/quickstart.html)
+Asynchronous JavaScript And XML to update the user rating without refreshing the entire page: [AJAX](https://developer.mozilla.org/en-US/docs/Glossary/AJAX) 
 
 References:
 - [Bootstrap 5.3](https://getbootstrap.com/docs/5.3/getting-started/download/)

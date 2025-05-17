@@ -1,17 +1,23 @@
 {% extends "base.html" %}
-{% load crispy_forms_tags %}
 {% load static %}
+{% load crispy_forms_tags %}
+
 <!-- Meta -->
 {% block title %}{{ recipe.title }}{% endblock %}
 {% block description %}{{ recipe.description }}{% endblock %}
-{% block keywords %}recipe, details, {{ recipe.title }}{% endblock %}
+{% block keywords %}{{ recipe.title }}{% endblock %}
+
+<!-- extra css -->
+{% block extra_css %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+{% endblock %}
+
 <!-- recipe_detail.html -->
 {% block content %}
-{% load static %}
-<div class="container mt-5">
+<div class="container mt-3">
     <!-- recipe header section -->
     <div class="row mb-4">
-        <div class="col-md-8">
+        <div class="col-12 text-md-center">
             <h1 class="display-4">{{ recipe.title }}</h1>
             <p class="text-muted">
                 By {{ recipe.author.username }} •
@@ -20,48 +26,106 @@
                 Updated on {{ recipe.updated_at|date:"F d, Y" }} •
                 {% endif %}
             </p>
-        </div>
-        <div class="col-md-4 text-md-end">
-        </div>
-        <!-- recipe image and description -->
-        <div class="row mb-5">
-            <div class="col-md-5">
-                <!-- Recipe image -->
-                <div class="recipe-image-container mb-3">
-                    <img src="{% static 'images/default.jpeg' %}" alt="{{ recipe.title }}"
-                        class="img-fluid rounded shadow">
+
+            <!-- Average Rating Display -->
+            <div class="average-rating col-12 text-md-center">
+                <div class="d-flex justify-content-center align-items-center mb-3">
+                    <div class="stars">
+                        {% with avg_rating=recipe.average_rating %}
+                        {% for i in "12345" %}
+                        {% if forloop.counter <= avg_rating|floatformat:"0"|add:"0" %} <i class="fas fa-star filled">
+                            </i>
+                            {% elif forloop.counter <= avg_rating|add:"0.5"|floatformat:"0"|add:"0" %} <i
+                                class="fas fa-star-half-alt filled"></i>
+                                {% else %}
+                                <i class="far fa-star"></i>
+                                {% endif %}
+                                {% endfor %}
+                                {% endwith %}
+                    </div>
+                    <span class="ms-2"> Rated: {{ recipe.average_rating|floatformat:1 }}/5</span>
+                    <span class="rating-count">({{ recipe.ratings.count }} ratings)</span>
                 </div>
             </div>
-            <div class="col-md-7">
-                <!-- Recipe description -->
-                <div class="card shadow-sm">
+        </div>
+    </div>
+    <!-- recipe image and description -->
+    <div class="row mb-5">
+        <div class="col-md-5">
+            <!-- Recipe image -->
+            <div class="recipe-image-container mb-3">
+                <img src="{% static 'images/default.jpeg' %}" alt="{{ recipe.title }}" class="img-fluid rounded shadow">
+            </div>
+            <!-- recipe rating and actions -->
+            <div class="text-center">
+                <!-- User Rating Form -->
+                {% if user.is_authenticated %}
+                <div class="card shadow-sm mb-4">
                     <div class="card-body">
-                        <h3 class="card-title">About this Recipe</h3>
-                        <p class="card-text">{{ recipe.description|safe }}</p>
-                        <!-- ingredients card -->
-                        <div class="card shadow-sm h-100">
-                            <div class="card-header bg-light">
-                                <h3 class="card-title mb-0">Ingredients</h3>
+                        <h4>Rate this recipe</h4>
+                        <form method="post" action="{% url 'rate_recipe' recipe.id %}" id="rating-form">
+                            {% csrf_token %}
+                            <div class="star-rating">
+                                <input type="radio" name="rating" id="star5" value="5" {% if user_rating.rating == 5 %}checked{% endif %}>
+                                <label for="star5" title="5 stars"><i class="fas fa-star"></i></label>
+
+                                <input type="radio" name="rating" id="star4" value="4" {% if user_rating.rating == 4 %}checked{% endif %}>
+                                <label for="star4" title="4 stars"><i class="fas fa-star"></i></label>
+
+                                <input type="radio" name="rating" id="star3" value="3" {% if user_rating.rating == 3 %}checked{% endif %}>
+                                <label for="star3" title="3 stars"><i class="fas fa-star"></i></label>
+
+                                <input type="radio" name="rating" id="star2" value="2" {% if user_rating.rating == 2 %}checked{% endif %}>
+                                <label for="star2" title="2 stars"><i class="fas fa-star"></i></label>
+
+                                <input type="radio" name="rating" id="star1" value="1" {% if user_rating.rating == 1 %}checked{% endif %}>
+                                <label for="star1" title="1 star"><i class="fas fa-star"></i></label>
                             </div>
-                            <div class="card-body">
-                                {{ recipe.ingredients|safe }}
+                            <div class="text-right">
+                                <button type="submit" class="btn btn-primary">Submit Rating</button>
                             </div>
+                        </form>
+                    </div>
+                </div>
+                {% else %}
+                <div class="card shadow-sm mb-4">
+                    <div class="card-body">
+                        <p><a href="{% url 'account_login' %}">Log in</a> to rate this recipe.</p>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="col-md-7">
+            <!-- Recipe description -->
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h3 class="card-title">About this Recipe</h3>
+                    <p class="card-text">{{ recipe.description|safe }}</p>
+                    <!-- ingredients card -->
+                    <div class="card shadow-sm h-100">
+                        <div class="card-header bg-light">
+                            <h3 class="card-title mb-0">Ingredients</h3>
                         </div>
-                        <!-- Instructions card -->
-                        <div class="card shadow-sm h-100">
-                            <div class="card-header bg-light">
-                                <h3 class="card-title mb-0">Instructions</h3>
-                            </div>
-                            <div class="card-body">
-                                {{ recipe.instructions|safe }}
-                            </div>
+                        <div class="card-body">
+                            {{ recipe.ingredients|safe }}
+                        </div>
+                    </div>
+                    <!-- Instructions card -->
+                    <div class="card shadow-sm h-100">
+                        <div class="card-header bg-light">
+                            <h3 class="card-title mb-0">Instructions</h3>
+                        </div>
+                        <div class="card-body">
+                            {{ recipe.instructions|safe }}
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Recipe Comments Section to be added with crispy forms-->
+</div>
+<div class="container">
     <!-- Displaying count of comments -->
     <div class="row">
         <div class="col-12">
@@ -76,30 +140,34 @@
 
     <!-- Displaying Comments -->
     <div class="row">
-        <div class="col-md-8 card mb-4  mt-3 ">
+        <div class="col-md-8 card mb-4 mt-3 ">
             <div class="card-body">
-            <h3>Comments:</h3>
+                <h3>Comments:</h3>
                 {% if comments %}
-                {% for comment in comments %}
-                <div class="p-2 comments
-          {% if not comment.approved and comment.author == user %}
-          faded{% elif not comment.approved %} d-none{% endif %}">
-                    <p class="font-weight-bold">
-                        {{ comment.author }}
-                        <span class="font-weight-normal">
-                            {{ comment.created_at }}
-                        </span> wrote:
-                    </p>
-                    <div id="comment{{ comment.id }}">
-                        {{ comment.text | linebreaks }}
-                    </div>
-                    {% if not comment.approved and comment.author == user %}
-                    <p class="approval">
-                        This comment is awaiting approval
-                    </p>
-                    {% endif %}
-                </div>
-                {% endfor %}
+                    {% for comment in comments %}
+                        <div class="p-2 comments {% if not comment.approved and comment.user == user %}
+                        faded
+                        {% elif not comment.approved %}d-none{% endif %}">
+                            <p class="font-weight-bold">
+                                {{ comment.user }} wrote on <span class="font-weight-normal">
+                                {{ comment.created_at }}
+                                </span>:
+                            </p>
+                            <div id="comment{{ comment.id }}">
+                                {{ comment.text | linebreaks }}
+                            </div>
+                            {% if not comment.approved and comment.user == user %}
+                            <p class="approval">
+                                This comment is awaiting approval
+                            </p>
+                            {% endif %}
+                            {% if user.is_authenticated and comment.user == user %}
+                            <button class="btn btn-delete"
+                            comment_id="{{ comment.id }}">Delete</button>
+                            <button class="btn btn-edit" comment_id="{{ comment.id }}">Edit</button>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
                 {% else %}
                 <p class="text-muted">No comments yet. Be the first to leave a comment!</p>
                 {% endif %}
@@ -123,5 +191,31 @@
         </div>
     </div>
 </div>
-
+<!-- Delete confirmation modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1"
+  aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"
+          id="deleteModalLabel">Delete comment?</h5>
+        <button type="button" class="btn-close"
+          data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to delete your comment?
+        This action cannot be undone.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary"
+          data-bs-dismiss="modal">Close</button>
+        <a id="deleteConfirm" href="#" class="btn
+          btn-danger">Delete</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block extras %}
+<script src="{% static 'js/comments.js' %}"></script>
 {% endblock %}

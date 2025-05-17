@@ -13,10 +13,6 @@ class Recipe(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='recipes')
     # cloudinary_image = CloudinaryField('image', default='placeholder')
     description = models.TextField()
-    average_rating = models.IntegerField(
-        default=0,
-        validators=[MinValueValidator(0), MaxValueValidator(5)]
-    )
     ingredients = models.TextField()
     instructions = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
@@ -38,8 +34,16 @@ class Recipe(models.Model):
 
     def __str__(self):
         return f'{self.title} by {self.author.username}'
-    # def get_absolute_url(self):
-    #     return reverse('recipe_detail', args=[str(self.id)])
+    
+    def average_rating(self):
+        """
+        Calculate the average rating for the recipe using
+        Django's aggregation for better performance.
+        """
+        result = self.ratings.aggregate(Avg('rating'))
+        # Check if the result is None or empty
+        return result['rating__avg'] or 0.0
+
     
 class Comment(models.Model):
         """Model representing a comment on a recipe."""
@@ -62,7 +66,10 @@ class Rating(models.Model):
     rating = models.IntegerField(
         validators=[MinValueValidator(1), MaxValueValidator(5)]
     )
+    created_at = models.DateTimeField(auto_now_add=True)
+
     class Meta:
+        # Ensure a user can only rate a recipe once
         unique_together = ('recipe', 'user')
 
     def __str__(self):
