@@ -168,6 +168,25 @@ body {
        object-fit: cover;
 }
 
+/* Next and Prev */
+.page-link {
+    color: var(--dark-text) !important;
+    font-size: 1.2rem !important;
+    -webkit-transition: color 0.3s;
+    -o-transition: color 0.3s;
+    transition: color 0.3s;
+}
+
+.page-link:hover {
+    color: var(--highlights1) !important;
+}
+
+/* recipe_detail image */
+.recipe-image {
+    width: 100%;
+    object-fit: fill;
+}
+
 /* Star rating */
 .star-rating {
     display: -webkit-box;

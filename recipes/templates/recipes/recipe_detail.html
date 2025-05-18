@@ -54,7 +54,11 @@
         <div class="col-md-5">
             <!-- Recipe image -->
             <div class="recipe-image-container mb-3">
-                <img src="{% static 'images/default.jpg' %}" alt="{{ recipe.title }}" class="img-fluid rounded shadow">
+                {% if "placeholder" in post.featured_image.url %}
+                <img src="{% static 'images/default.jpg' %}" alt="placeholder image" class="recipe-image rounded shadow">
+                {% else %}
+                <img src="{{ recipe.featured_image.url }}" alt="{{ recipe.title }}" class="recipe-image rounded shadow">
+                {% endif %}
             </div>
             <!-- recipe rating and actions -->
             <div class="text-center">
@@ -101,7 +105,7 @@
             <div class="card shadow-sm">
                 <div class="card-body">
                     <h3 class="card-title">About this Recipe</h3>
-                    <p class="card-text">{{ recipe.description|safe }}</p>
+                    <div class="card-text">{{ recipe.description|safe }}<br></div>
                     <!-- ingredients card -->
                     <div class="card shadow-sm h-100">
                         <div class="card-header bg-light">
