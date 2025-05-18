@@ -72,11 +72,10 @@ def comment_edit(request, slug, comment_id):
     view to edit comments
     """
     if request.method == "POST":
-
         queryset = Recipe.objects.filter(status='published')
         recipe = get_object_or_404(queryset, slug=slug)
         comment = get_object_or_404(Comment, pk=comment_id)
-        comment_form = CommentForm(data=request.Recipe, instance=comment)
+        comment_form = CommentForm(data=request.POST, instance=comment)
 
         if comment_form.is_valid() and comment.user == request.user:
             comment = comment_form.save(commit=False)
