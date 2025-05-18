@@ -36,6 +36,12 @@ p {
 a {
     text-decoration: none;
     color: inherit;
+    font-weight: bold;
+    transition: color 0.3s;
+
+}
+a:hover {
+    color: var(--highlights1);
 }
 
 button {

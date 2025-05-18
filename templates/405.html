@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-12 text-md-center">
+            <h1 class="display-4">405 | Method Not Allowed</h1>
+            <p class="h3 mt-3 mb-3">The method used in the request is not allowed for the resource.<br>
+                Please check the request method and try again.</p>
+            <h3 class="mb-4"><a aria-label="homepage link" href="{% url 'home' %}">Click here to return to the homepage.</a></p>
+        </div>
+    </div>
+</div>
+{% endblock %}
