@@ -54,7 +54,7 @@
         <div class="col-md-5">
             <!-- Recipe image -->
             <div class="recipe-image-container mb-3">
-                <img src="{% static 'images/default.jpeg' %}" alt="{{ recipe.title }}" class="img-fluid rounded shadow">
+                <img src="{% static 'images/default.jpg' %}" alt="{{ recipe.title }}" class="img-fluid rounded shadow">
             </div>
             <!-- recipe rating and actions -->
             <div class="text-center">
@@ -148,23 +148,22 @@
                         <div class="p-2 comments {% if not comment.approved and comment.user == user %}
                         faded
                         {% elif not comment.approved %}d-none{% endif %}">
-                            <p class="font-weight-bold">
-                                {{ comment.user }} wrote on <span class="font-weight-normal">
-                                {{ comment.created_at }}
-                                </span>:
+                            <p class="text-muted">
+                                {{ comment.user }} wrote on
+                                {{ comment.created_at }}:
                             </p>
                             <div id="comment{{ comment.id }}">
                                 {{ comment.text | linebreaks }}
                             </div>
                             {% if not comment.approved and comment.user == user %}
-                            <p class="approval">
-                                This comment is awaiting approval
+                            <p class="text-muted">
+                                *This comment is awaiting approval.
                             </p>
                             {% endif %}
                             {% if user.is_authenticated and comment.user == user %}
                             <button class="btn btn-delete"
-                            comment_id="{{ comment.id }}">Delete</button>
-                            <button class="btn btn-edit" comment_id="{{ comment.id }}">Edit</button>
+                            data-comment_id="{{ comment.id }}">Delete</button>
+                            <button class="btn btn-edit" data-comment_id="{{ comment.id }}">Edit</button>
                             {% endif %}
                         </div>
                     {% endfor %}

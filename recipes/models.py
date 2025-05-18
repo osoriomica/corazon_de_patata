@@ -73,7 +73,7 @@ class Rating(models.Model):
         unique_together = ('recipe', 'user')
 
     def __str__(self):
-        return f'{self.user.username} rated {self.recipe.title}: {self.value}'
+        return f'{self.user.username} rated {self.recipe.title}: {self.rating} stars'
 
 class Bookmark(models.Model):
     """Model representing a bookmarked recipe by a user."""
