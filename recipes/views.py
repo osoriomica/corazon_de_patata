@@ -36,7 +36,7 @@ def recipe_detail(request, slug):
     comments = recipe.comments.all().order_by("-created_at")
     comment_count = recipe.comments.filter(approved=True).count()
 
-    # Get the user's rating for the recipe if logged in
+    # Get the user's rating for the recipe if they're logged in
     if request.user.is_authenticated:
         user_rating = Rating.objects.filter(recipe=recipe, user=request.user).first()
     
@@ -66,6 +66,7 @@ def recipe_detail(request, slug):
         }
     )
 
+@login_required
 def comment_edit(request, slug, comment_id):
     """
     view to edit comments
@@ -88,6 +89,7 @@ def comment_edit(request, slug, comment_id):
 
     return HttpResponseRedirect(reverse('recipe_detail', args=[slug]))
 
+@login_required
 def comment_delete(request, slug, comment_id):
     """
     view to delete comment
@@ -109,15 +111,9 @@ def comment_delete(request, slug, comment_id):
 def rate_recipe(request, recipe_id):
     """
     View to handle rating a recipe.
-    This view allows users to rate a recipe from 1 to 5 stars.
-    If the user has already rated the recipe, it updates the rating.
-    If the user is not authenticated, they are redirected to the login page.
-    If the rating value is not between 1 and 5, an error message is displayed.
-    If the rating is successfully saved, a success message is displayed.
-    If the rating is updated, a success message is displayed.
-    If the rating is not valid, an error message is displayed.
-    Success and error messages are displayed using Django's messages framework.
-    This view is decorated with the `@login_required` decorator to ensure that only authenticated users can rate recipes.
+    It allows users to rate a recipe from 1 to 5 stars.
+    Allows users CRUD operations on their own ratings.
+    The `@login_required` decorator ensures that only authenticated users can rate recipes.
     Supports standard form submission and AJAX requests.
 
     Context:
