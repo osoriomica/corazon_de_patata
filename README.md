@@ -1,5 +1,5 @@
 # CORAZON DE PATATA
-![Resposive Corazon de Patata]()
+![Responsive Corazon de Patata]()
 
 A recipe-blog dedicated to Indo-Mex recipes for fellow foodies and culinary explorers.
 
@@ -85,6 +85,9 @@ AI generated images: [Microsoft Copilot](https://copilot.microsoft.com/)
 Image converter: [cloudconvert](https://cloudconvert.com/png-to-ico)
 Django Allauth Authentication: [allauth](https://docs.allauth.org/en/latest/installation/quickstart.html)
 Asynchronous JavaScript And XML to update the user rating without refreshing the entire page: [AJAX](https://developer.mozilla.org/en-US/docs/Glossary/AJAX) 
+cloudinary.com
+Django 5.2: [Django](https://docs.djangoproject.com/en/5.2/)
+Python Virtual Environments: [Python](https://docs.python.org/3/library/venv.html)
 
 References:
 - [Bootstrap 5.3](https://getbootstrap.com/docs/5.3/getting-started/download/)
