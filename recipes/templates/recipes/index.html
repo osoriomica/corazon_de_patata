@@ -30,10 +30,10 @@
                             <a href="{% url 'recipe_detail' recipe.slug %}">
                                 <h2 class="card-title mt-2">{{ recipe.title }}</h2>
                             </a>
-                            <hr />
-                            <p class="card-text text-muted h6">
+                            <hr>
+                            <div class="card-text text-muted h6">
                                 {{ recipe.description|safe }}
-                            </p>
+                            </div>
                         </div>
                     </div>
                 </div>
