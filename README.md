@@ -5,7 +5,7 @@
 
 The deployed site can be found here: [Corazon de Patata](https://corazon-de-patata-be3857387485.herokuapp.com/)
 
-<strong>Click here to view full screenshots of the website.
+<strong>Click here to view full screenshots of the website on the README folder.
 
 [Full Screenshots](README-folder/full-screenshots)  </strong>
 
@@ -39,19 +39,58 @@ The deployed site can be found here: [Corazon de Patata](https://corazon-de-pata
 
 ## 🧑‍🍳 Introduction
 
-**CORAZON DE PATATA** is a Django-powered food blog inspired by Indo-Mexican fusion cuisine. It allows users to discover, rate, comment on, and bookmark recipes. The site includes full backend functionality with admin controls, user authentication, and AJAX-powered interactions.
+**CORAZON DE PATATA** is a Django-powered food blog inspired by Indo-Mexican fusion cuisine. It allows users to discover, rate, and comment on recipes. The site includes full backend functionality with admin controls, user authentication, and AJAX-powered interactions. 
+The project was developed following the tutorial for the full-featured blog project "Codestar blog" by Code Institute.
 
 ---
 
 ## UXD
 
-### User Stories
+### Development Timeline
 
-- As a user, I want to browse recipes easily.
-- As a user, I want to view full recipe details including ingredients and instructions.
-- As a user, I want to log in and leave comments or rate recipes.
-- As a user, I want to save recipes I like to my bookmarks. * Future deployment
-- As an admin, I want to manage submitted content efficiently.
+| Week commencing: | Task 1                                                         | Task 2                                                    | Task 3                     | Task 4                                                                  |
+| ---------------- | -------------------------------------------------------------- | --------------------------------------------------------- | -------------------------- | ----------------------------------------------------------------------- |
+| April 28, 2025   | Draft strategy, scope, structure, skeleton and surface planes. | Make initial wireframes and mockups.                      | User Stories               | Explore imagery and color palette to be used in site.                   |
+| May 5, 2025      | Initial commit.                                                | Set up Django project and recipes app. Create database    | Site deployment on Heroku. | Set up templates. Basic HTML layout, general CSS and Bootstrap styling. |
+| May 12, 2025     | Add star rating feature                                        | Add authentication and comments section with Crispy forms | Debug code.                | Enable serving of image files with Cloudinary.                          |
+| May 19, 2025     | Tidy up code and debug                                         | Add custom error pages  
+
+### User Stories
+The user stories were managed via GitHub's Projects and Issues using a [Kanban board](https://github.com/users/osoriomica/projects/8) for ease of tracking open issues. 
+1. As a site user I can view a paginated list of the published recipes so that I can browse and select a recipe to read
+    - AC1 All published recipes are listed on the homepage.
+    - AC2 - The list of recipes is spread over multiple pages
+2. As a Site User I can **open a recipe ** so that I can read the full list of ingredients and cooking method
+    - AC1 When a recipe card is clicked, the detailed recipe is opened on a new page.
+3. As a site User / Admin I can view comments on individual recipes so that I can read the conversation and recipes' feedback: 
+    - AC1 Admin can view any comments left by the users.  
+    - AC2 Site users can read the published comments left on a recipe.  
+4. As a Site User I can **register an account ** so that I can comment on a post
+    - AC1 User can register an account with an email address.
+    - AC2 User is able to log in.
+    - AC3 Logged in users are able to comment.
+5. As a logged-in Site User I can leave comments so that I can provide feedback or ask questions about a recipe
+    - AC1 Comments are to be approved by Admin
+    - AC2 User is able to reply to comments
+6. As a Site User I can delete or modify my own comments so that I can be part of the conversation
+    - AC1 Logged-in users, can modify their comments
+    - AC2 Logged-in users, can delete their comments
+7. As a Site Admin I have **CRUD abilities ** so that I can manage the site's content. As a logged-in site admin:
+    - AC1 I can create and publish a recipe
+    - AC2 I can read recipes
+    - AC3 I can update recipes
+    - AC4 I can delete recipes
+8. As a logged-in Site Admin I can create draft recipes so that I can continue writing, editing the recipe at another time
+    - AC1 I can save a draft of a recipe.
+    - AC2 I can finish writing, editing the recipe later.
+9. As a logged-in Site Admin I can approve or reject comments before they are visible to other users so that I can filter inappropriate comments
+    - AC1 I can approve a comment.
+    - AC2 I can reject a comment.
+10. As a Site User I can rate a recipe so that I can provide feedback to other site users and the recipe authors
+    - AC1 I can give 0 to 5 star rating to a recipe
+    - AC2 the star rating is then updated to show an average rating for each recipe.
+11. As a user, I want to save recipes I like to my bookmarks. * Future deployment
+
 
 ### Features
 
@@ -59,9 +98,9 @@ The deployed site can be found here: [Corazon de Patata](https://corazon-de-pata
 - 📝 **Recipe Detail Pages**: Ratings, comments, and full instructions  
 - ✅ **Authentication**: Django Allauth-powered login/signup/logout  
 - ⭐ **Ratings**: 1–5 star rating system with AJAX updates  
-- 📘 **Bookmarks**: Save your favorite dishes  * Future deployment
 - 🛠️ **Admin panel**: Manage users, content, and moderation  
-- 📱 **Responsive Design**: Optimized for all screen sizes  
+- 📱 **Responsive Design**: Mobile first. Optimized for all screen sizes  
+- 📘 **Bookmarks**: Save your favorite dishes  * Future deployment
 
 ### Design
 The color scheme and fonts reflect the warmth and spice of the Indo-Mexican kitchen. Typography is chosen to balance elegance with readability. All layouts are designed with mobile-first principles.
@@ -77,50 +116,50 @@ The color scheme and fonts reflect the warmth and spice of the Indo-Mexican kitc
     | ![#feb495](https://placehold.co/15x15/feb495/feb495.png)             | #feb495   | Peach        |
 
 - Typography:
-    The font families were chosen to balance playfulness with readability.
-    - Lato for the body and general text elements.
-    - Fredericka the Great for the headings and highlighted text.
+    The font families used in this project are:  
+    - "Lato" for the body and general text elements. Chosen for its ease of reading.
+    - "Fredericka the Great" for headings and highlighted text. Chosen for its distinctive hand-sketched quality that evokes the warmth and personal touch of handwritten recipe cards.  
+    This stylistic choice deliberately contrasts with the clean body text to create visual hierarchy while reinforcing the authentic, homemade essence of cooking. 
 
-
+- Images:
+    - All food images and logo used in this project were created using prompts and AI on [MicrosoftCopilot](https://copilot.microsoft.com/).
 ---
 
 ## 📊 Database Schema
-### User Model  
-Standard Django `User` model extended with Allauth.
-
-### Recipe Model  
-Includes:
-- `title`, `slug`, `author`, `image`, `description`
-- `ingredients`, `instructions`, `average_rating`
-- `created_on`, `updated_on`, `status`
-
-### Comment Model  
-- FK to `Recipe` and `User`, plus `body`, `created_on`, `updated_on`
-
-### Rating Model  
-- FK to `Recipe` and `User`, `value` (1–5), `created_on`
-
-### Bookmark Model  
-- FK to `Recipe` and `User`, `created_on`
+| Database Schema                            |                |                          |
+| ------------------------------------------ | -------------- | ------------------------ |
+| User Model                                 |                |                          |
+| Recipe Model                               |                |                          |
+|                                            | title          | CharField                |
+|                                            | slug (unique)  | SlugField                |
+| FK                                         | author         | User Model               |
+|                                            | featured_image | CloudinaryField          |
+|                                            | description    | TextField                |
+|                                            | ingredients    | TextField                |
+|                                            | instructions   | TextField                |
+|                                            | created_at     | DateTimeField            |
+|                                            | updated_at     | DateTimeField            |
+|                                            | status         | CharField, choices       |
+| Comment Model                              |                |                          |
+| FK                                         | user           | User Model               |
+| FK                                         | recipe         | Recipe Model             |
+|                                            | text           | TextField                |
+|                                            | created_at     | DateTimeFied             |
+| Rating Model                               |                |                          |
+| FK                                         | user           | User Model               |
+| FK                                         | recipe         | Recipe Model             |
+|                                            | rating         | IntegerField, validators |
+| Bookmark Model (\*for a future deployment) |                |                          |
+| FK                                         | user           | User Model               |
+| FK                                         | recipe         | Recipe Model             |
+|                                            | bookmarked_on  | DateTimeField            |
 
 ---
 
 ## 📦 Fixtures
 Fixture files are included in JSON format and contain:
-- Pre-filled recipes in Mexican and Indian categories  
-- All relevant fields including HTML-formatted content  
-
----
-
-## 🔍 Views
-### `rate_recipe` view
-
-Handles:
-- Auth-check
-- Duplicate detection and update
-- Valid range enforcement
-- Message feedback via Django’s messages framework
-- AJAX and standard form submission
+- Pre-filled recipes with author, description, ingredients and instructions.
+- All relevant fields including HTML-formatted content (I.e. ordered and unordered list tags and list items)
 
 ---
 
@@ -141,6 +180,12 @@ ireframes and mockups created with [Canva](https://www.canva.com/) and [Website 
 
 ## 💻 Technologies Used
 
+- Languages: HTML5, CSS3, JS, Python
+- [GitHub](https://github.com/) -  to host the project
+- Visual Studio Code - IDE connected to GitHub codespaces
+- [canva.com](https://canva.com/) - to edit the logo
+- coolors.co - Create the colour palette based on the logo
+- Font Awesome - arrow icons on index.html and social icons on footer
 - [Django 5.2](https://docs.djangoproject.com/en/5.2/)
 - [Heroku](https://www.heroku.com/)
 - [Cloudinary](https://cloudinary.com/)
@@ -151,6 +196,12 @@ ireframes and mockups created with [Canva](https://www.canva.com/) and [Website 
 - [cloudconvert](https://cloudconvert.com/)
 - [PE8CI](https://pep8ci.herokuapp.com/#)
 - [Mockup Generator](https://websitemockupgenerator.com/)
+- prettier.io - to beautify the js and css code
+- Google's Inspect Element - to debug code and see console logs and errors
+- Chat GPT and Claude AI - Used to explain concepts that were not so obvious and as an aid to debug.
+- [tabletomarkdown.com](https://tabletomarkdown.com/convert-spreadsheet-to-markdown/): to easily generate my tables by importing spreadsheets.
+- [Markdown TOC generator](https://bitdowntoc.derlin.ch/)
+- [Autoprefixer](https://autoprefixer.github.io/): to parse my CSS file and add the needed prefixes for browser compatibility.  
 
 ---
 
@@ -266,15 +317,15 @@ Visit http://127.0.0.1:8000 in your browser.
 
 - [DjangoDocs](https://docs.djangoproject.com/)
 - Custom error handling via [LearnDjango](https://learndjango.com/)
-- Rating form adapted from various StackOverflow examples
 - [Bootstrap documentation](https://getbootstrap.com/docs/5.3/getting-started/introduction/) for general reference in layout styling, navigation bars and modals, etc.
+- Star Rating inspired by [James Barnett's CSS Star Rating](https://codepen.io/jamesbarnett/pen/najzYK)
 
 ### Media
 
 - AI-generated food images and site's logo from [MicrosoftCopilot](https://copilot.microsoft.com/)
 - Icons from [Font Awesome](https://fontawesome.com/)
 - Fonts from [GoogleFonts](https://fonts.google.com/)
-- Converted via [cloudconvert](https://cloudconvert.com/png-to-ico)
+- Images converted via [cloudconvert](https://cloudconvert.com/png-to-ico)
 
 ### Acknowledgements
 
