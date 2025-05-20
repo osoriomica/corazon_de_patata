@@ -32,19 +32,20 @@
                 <div class="d-flex justify-content-center align-items-center mb-3">
                     <div class="stars">
                         {% with avg_rating=recipe.average_rating %}
-                        {% for i in "12345" %}
-                        {% if forloop.counter <= avg_rating|floatformat:"0"|add:"0" %} <i class="fas fa-star filled">
-                            </i>
-                            {% elif forloop.counter <= avg_rating|add:"0.5"|floatformat:"0"|add:"0" %} <i
-                                class="fas fa-star-half-alt filled"></i>
-                                {% else %}
-                                <i class="far fa-star"></i>
-                                {% endif %}
-                                {% endfor %}
+                            {% for i in "12345" %}
+                                {% with counter=forloop.counter|floatformat:"0" %}
+                                    {% if counter <= avg_rating|floatformat:"0" %}
+                                        <i class="fas fa-star filled" aria-hidden="true"></i>
+                                    {% elif counter <= avg_rating|add:0.5|floatformat:"0" %}
+                                        <i class="fas fa-star-half-alt filled" aria-hidden="true"></i>
+                                    {% else %}
+                                        <i class="far fa-star" aria-hidden="true"></i>
+                                    {% endif %}
                                 {% endwith %}
+                            {% endfor %}
+                        {% endwith %}
                     </div>
-                    <span class="ms-2"> Rated: {{ recipe.average_rating|floatformat:1 }}/5</span>
-                    <span class="rating-count">({{ recipe.ratings.count }} ratings)</span>
+                    <span class="ms-2"> {{ recipe.average_rating|floatformat:1 }} from {{ recipe.ratings.count }} votes</span>
                 </div>
             </div>
         </div>
@@ -161,7 +162,7 @@
                                 {{ comment.text | linebreaks }}
                             </div>
                             {% if not comment.approved and comment.user == user %}
-                            <p class="text-muted">
+                            <p class="text-muted mt-2">
                                 *This comment is awaiting approval.
                             </p>
                             {% endif %}
@@ -189,7 +190,7 @@
                     <button id="submitButton" type="submit" class="btn btn-signup btn-lg">Submit</button>
                 </form>
                 {% else %}
-                <p>Log in to leave a comment</p>
+                <p><a href="{% url 'account_login' %}">Log in</a> to leave a comment.</p>
                 {% endif %}
             </div>
         </div>
