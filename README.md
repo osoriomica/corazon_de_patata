@@ -253,11 +253,13 @@ Tested across:
 | Login Required   | Rating/commenting                        | Pass   |
 | Mobile UI        | Screen sizes < 768px                     | Pass   |
 | Admin Panel      | CRUD operations                          | Pass   |
-| Ratings           | Ratings persist across user sessions    | Pass   |
-| Form validation | Comments and ratings are sent successfully | Pass |
-| Message handling | Messages are displayed to the user on Post | Pass |
+| Form validation  | Comments and ratings are sent successfully | Pass |
+| CRUD comments    | User is able to edit/delete own comments | Pass   |
+| Message handling | Messages are displayed to the user on POST | Pass |
 | Log in buttons    | User can login from navbar, ratings and comment forms | Pass |
 | Images are loaded | Recipe images are loaded on Index and Recipe_detail | Failed (Fixed) |
+| Ratings           | Ratings persist across user sessions    | Pass   |
+| Average rating star display | Average rating is not an integer. Half star should be displayed | Failed |
 
 
 ### Fixed Bugs
@@ -272,6 +274,9 @@ Tested across:
   Fix: Custom templates following [LearnDjango's tutorial](https://learndjango.com/tutorials/customizing-django-404-and-500-error-pages)
 - **Placeholder image not loading on recipe_detail.html**
   Fix: Wrong model being referenced on if statement. Changed to recipe.featured_image
+
+### Known Bugs
+-- **Half stars not showing** on average rating, although rating is being calulated properly. Needs fixing.
 
 ---
 
