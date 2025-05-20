@@ -12,7 +12,7 @@ The deployed site can be found here: [Corazon de Patata](https://corazon-de-pata
 
 ---
 
-## 📑 Table of Contents
+## Table of Contents
 
 - [Introduction](#introduction)
 - [UXD](#uxd)
@@ -37,7 +37,7 @@ The deployed site can be found here: [Corazon de Patata](https://corazon-de-pata
 
 ---
 
-## 🧑‍🍳 Introduction
+## Introduction
 
 **CORAZON DE PATATA** is a Django-powered food blog inspired by Indo-Mexican fusion cuisine. It allows users to discover, rate, and comment on recipes. The site includes full backend functionality with admin controls, user authentication, and AJAX-powered interactions. 
 The project was developed following the tutorial for the full-featured blog project "Codestar blog" by Code Institute.
@@ -94,13 +94,12 @@ The user stories were managed via GitHub's Projects and Issues using a [Kanban b
 
 ### Features
 
-- 🔍 **Homepage**: Recipe card previews with filters and search  
-- 📝 **Recipe Detail Pages**: Ratings, comments, and full instructions  
-- ✅ **Authentication**: Django Allauth-powered login/signup/logout  
-- ⭐ **Ratings**: 1–5 star rating system with AJAX updates  
-- 🛠️ **Admin panel**: Manage users, content, and moderation  
-- 📱 **Responsive Design**: Mobile first. Optimized for all screen sizes  
-- 📘 **Bookmarks**: Save your favorite dishes  * Future deployment
+- **Homepage**: Recipe card previews with filters and search  
+- **Recipe Detail Pages**: Ratings, comments, and full instructions  
+- **Authentication**: Django Allauth-powered login/signup/logout  
+- **Ratings**: 1–5 star rating system with AJAX updates  
+- **Admin panel**: Manage users, content, and moderation  
+- **Responsive Design**: Mobile first. Optimized for all screen sizes  
 
 ### Design
 The color scheme and fonts reflect the warmth and spice of the Indo-Mexican kitchen. Typography is chosen to balance elegance with readability. All layouts are designed with mobile-first principles.
@@ -122,7 +121,7 @@ The color scheme and fonts reflect the warmth and spice of the Indo-Mexican kitc
     This stylistic choice deliberately contrasts with the clean body text to create visual hierarchy while reinforcing the authentic, homemade essence of cooking. 
 
 - Images:
-    - All food images and logo used in this project were created using prompts and AI on [MicrosoftCopilot](https://copilot.microsoft.com/).
+    - All food images and logo used in this project were created using prompts and AI on [MicrosoftCopilot](https://copilot.microsoft.com/). Edits were made with [Canva.com](https://canva.com/)
 ---
 
 ## 📊 Database Schema
@@ -156,7 +155,7 @@ The color scheme and fonts reflect the warmth and spice of the Indo-Mexican kitc
 
 ---
 
-## 📦 Fixtures
+## Fixtures
 Fixture files are included in JSON format and contain:
 - Pre-filled recipes with author, description, ingredients and instructions.
 - All relevant fields including HTML-formatted content (I.e. ordered and unordered list tags and list items)
@@ -178,41 +177,62 @@ ireframes and mockups created with [Canva](https://www.canva.com/) and [Website 
 
 ---
 
-## 💻 Technologies Used
+## Technologies Used
 
 - Languages: HTML5, CSS3, JS, Python
 - [GitHub](https://github.com/) -  to host the project
-- Visual Studio Code - IDE connected to GitHub codespaces
+- [Visual Studio Code](https://code.visualstudio.com/download) - IDE connected to GitHub codespaces
 - [canva.com](https://canva.com/) - to edit the logo
-- coolors.co - Create the colour palette based on the logo
-- Font Awesome - arrow icons on index.html and social icons on footer
-- [Django 5.2](https://docs.djangoproject.com/en/5.2/)
-- [Heroku](https://www.heroku.com/)
-- [Cloudinary](https://cloudinary.com/)
+- [coolors.co](https://coolors.co/) - Create the colour palette based on the logo
+- [Font Awesome](https://fontawesome.com/) - arrow icons on index.html and social icons on footer
+- [Django 5.2](https://docs.djangoproject.com/en/5.2/) - Used for responsive design and UI components.
+- [Heroku](https://www.heroku.com/) - Used to deploy the project
+- [Cloudinary](https://cloudinary.com/) - Used to host static images
 - [Django Allauth](https://docs.allauth.org/en/latest/)
-- [Bootstrap 5.3](https://getbootstrap.com/)
-- [AJAX](https://developer.mozilla.org/en-US/docs/Glossary/AJAX)
-- [Google Fonts](https://fonts.google.com/)
-- [cloudconvert](https://cloudconvert.com/)
+- [Bootstrap 5.3](https://getbootstrap.com/) - Used for responsive design and UI components.
+- [AJAX](https://developer.mozilla.org/en-US/docs/Glossary/AJAX) - Used to enable asynchronous updates for ratings.
+- [Google Fonts](https://fonts.google.com/) - Used to customize the project's fonts. 
+- [cloudconvert](https://cloudconvert.com/) - to convert images' formats.
 - [PE8CI](https://pep8ci.herokuapp.com/#)
 - [Mockup Generator](https://websitemockupgenerator.com/)
-- prettier.io - to beautify the js and css code
-- Google's Inspect Element - to debug code and see console logs and errors
-- Chat GPT and Claude AI - Used to explain concepts that were not so obvious and as an aid to debug.
+- [prettier.io](https://prettier.io) - to beautify the js and css code
+- [Google's Inspect Element](https://developer.chrome.com/docs/devtools) - to debug code and see console logs and errors
+- [Chat GPT](https://chatgpt.com/) and [Claude AI](https://claude.ai/) - Used to explain concepts that were not so obvious and as a very useful aid in debugging.
 - [tabletomarkdown.com](https://tabletomarkdown.com/convert-spreadsheet-to-markdown/): to easily generate my tables by importing spreadsheets.
 - [Markdown TOC generator](https://bitdowntoc.derlin.ch/)
 - [Autoprefixer](https://autoprefixer.github.io/): to parse my CSS file and add the needed prefixes for browser compatibility.  
 
 ---
 
-## 🧪 Testing
+## Testing
 
 ### Validation
 
 [Validation Folder](README-folder/validation)
-- HTML/CSS/JS validated using [W3C Validator](https://validator.w3.org/) and [JSHint](https://jshint.com/)
+- HTML validated with [W3C Validator](https://validator.w3.org/) 
+Index.html:  
+    ![valid index.html](README-folder/validation/html-index-validation.png)  
+Recipe_detail.html:  
+    ![valid recipe_detail.html](README-folder/validation/html-recipe_detail-validation.png)  
+- CSS validated with: [W3C Validator](https://validator.w3.org/) 
+    ![CSS](README-folder/validation/valid-css.png)
+<p>
+    <a href="https://jigsaw.w3.org/css-validator/check/referer">
+        <img style="border:0;width:88px;height:31px"
+            src="https://jigsaw.w3.org/css-validator/images/vcss"
+            alt="Valid CSS!" />
+    </a>
+</p>
 
-- Python code checked with [PE8CI](https://pep8ci.herokuapp.com/#)
+- JS validated with [JSHint](https://jshint.com/)  
+![Valid JS](README-folder/validation/js-comments-validation.png)  
+
+- Python code checked with [PE8CI](https://pep8ci.herokuapp.com/#): 
+
+![Valid Python1](README-folder/validation/python-linter-1.png)  
+![Valid Python2](README-folder/validation/python-linter-2.png)  
+![Valid Python3](README-folder/validation/python-linter-3.png)  
+![Valid Python4](README-folder/validation/python-linter-4.png)  
 
 ### Manual Testing
 <strong>Manual testing</strong> involves checking a project’s functionality by simulating user interactions, typically through clicking buttons, filling out forms, and testing the logic and responsiveness in different browsers and resolutions. It is an essential way to ensure that a product meets the user's expectations but comes with limitations. It can be time-consuming, resource-intensive, and prone to human error,  making it unreliable (especially for larger projects). Tiredness, biases, and/or oversight can lead to missed bugs and issues that can dampen the user’s experience. Manual testing is best deployed when we need to assess the user experience (UX), or when testing specific user stories that require human judgment to evaluate nuances, which would not be picked by automated tests. 
@@ -247,6 +267,8 @@ Tested across:
   Fix: Client-side check for auth before submitting via JS  
 - **404 not styled**  
   Fix: Custom templates following [LearnDjango's tutorial](https://learndjango.com/tutorials/customizing-django-404-and-500-error-pages)
+- **Placeholder image not loading on recipe_detail.html**
+  Fix: Wrong model being referenced on if statement. Changed to recipe.featured_image
 
 ---
 
@@ -282,7 +304,7 @@ Tested across:
 
 ---
 
-## 🛠️ Running the Project Locally  
+## Running the Project Locally  
 
 To run this project locally, follow the steps below:  
 
@@ -332,5 +354,5 @@ Visit http://127.0.0.1:8000 in your browser.
 Thanks to my mentor and the Django community for consistent support and detailed documentation. Also, a big thanks to the developers of Allauth, Cloudinary, and all open-source tools that power this project.
 
 ---
-
-🍲 *Cook with love. Code with spice.*
+![logo](static/images/logo.png)
+ *Cook with love. Code with spice.*
