@@ -213,13 +213,13 @@ Recipe_detail.html:
     ![valid recipe_detail.html](README-folder/validation/html-recipe_detail-validation.png)  
 - CSS validated with: [W3C Validator](https://validator.w3.org/) 
     ![CSS](README-folder/validation/valid-css.png)
-<p>
-    <a href="https://jigsaw.w3.org/css-validator/check/referer">
-        <img style="border:0;width:88px;height:31px"
-            src="https://jigsaw.w3.org/css-validator/images/vcss"
-            alt="Valid CSS!" />
-    </a>
-</p>
+        <p>
+            <a href="https://jigsaw.w3.org/css-validator/check/referer">
+                <img style="border:0;width:88px;height:31px"
+                    src="https://jigsaw.w3.org/css-validator/images/vcss"
+                    alt="Valid CSS!" />
+            </a>
+        </p>
 
 - JS validated with [JSHint](https://jshint.com/)  
 ![Valid JS](README-folder/validation/js-comments-validation.png)  
