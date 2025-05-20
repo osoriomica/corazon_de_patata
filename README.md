@@ -155,6 +155,10 @@ The color scheme and fonts reflect the warmth and spice of the Indo-Mexican kitc
 
 ---
 
+## ERD
+![Entity Relationship Diagram](README-folder/erd.webp)
+---
+
 ## Fixtures
 Fixture files are included in JSON format and contain:
 - Pre-filled recipes with author, description, ingredients and instructions.
