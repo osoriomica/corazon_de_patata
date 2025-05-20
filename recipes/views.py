@@ -61,6 +61,7 @@ def recipe_detail(request, slug):
     if request.user.is_authenticated:
         user_rating = Rating.objects.filter(recipe=recipe,
                                             user=request.user).first()
+    comment_form = CommentForm()
     if request.method == "POST":
         comment_form = CommentForm(data=request.POST)
         if comment_form.is_valid():
@@ -73,7 +74,8 @@ def recipe_detail(request, slug):
                 messages.SUCCESS,
                 "Your comment has been submitted and is awaiting approval.",
             )
-    comment_form = CommentForm()
+            # Redirect to the same page to avoid resubmission
+            return HttpResponseRedirect(reverse('recipe_detail', args=[slug]))
 
     return render(
         request,
