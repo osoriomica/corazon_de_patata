@@ -124,7 +124,7 @@ The color scheme and fonts reflect the warmth and spice of the Indo-Mexican kitc
     - All food images and logo used in this project were created using prompts and AI on [MicrosoftCopilot](https://copilot.microsoft.com/). Edits were made with [Canva.com](https://canva.com/)
 ---
 
-## 📊 Database Schema
+## Database Schema
 | Database Schema                            |                |                          |
 | ------------------------------------------ | -------------- | ------------------------ |
 | User Model                                 |                |                          |
@@ -166,7 +166,7 @@ Fixture files are included in JSON format and contain:
 
 ---
 
-## 🧰 Wireframes
+## Wireframes
 ireframes and mockups created with [Canva](https://www.canva.com/) and [Website Mockup Generator](https://websitemockupgenerator.com/).
 
 <details>
