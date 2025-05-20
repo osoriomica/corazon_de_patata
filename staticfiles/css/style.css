@@ -243,15 +243,19 @@ body {
     font-size: 1.5rem;
 }
 
-.average-rating .stars filled {
-    color: #ffc107;
-    /* Gold */
+/* Target all full stars */
+.average-rating .stars .fas.fa-star.filled {
+    color: #ffc107; /* Gold */
 }
 
-.rating-count {
-    font-size: 1rem;
-    color: var(--dark-text);
-    margin-left: .5rem;
+/* Target half stars specifically */
+.average-rating .stars .fas.fa-star-half-alt.filled {
+    color: #ffc107; /* Gold */
+}
+
+/* Empty stars - already handled by default styling */
+.average-rating .stars .far.fa-star {
+    color: #1c1818; /* Same as default star color */
 }
 
 /* Comments CRUD */

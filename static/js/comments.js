@@ -1,3 +1,7 @@
+/* jshint esversion: 8 */
+/*jshint -W033 */
+/* global bootstrap */
+
 // This script handles the edit functionality for comments on a webpage.
 const editButtons = document.getElementsByClassName("btn-edit");
 const commentText = document.getElementById("id_text");

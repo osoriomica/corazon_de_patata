@@ -160,39 +160,31 @@ The color scheme and fonts reflect the warmth and spice of the Indo-Mexican kitc
 ---
 
 ## Fixtures
-Fixture files are included in JSON format and contain:
-- Pre-filled recipes with author, description, ingredients and instructions.
+Most of the database was populated using a fixture file in JSON format and contains:
+- Pre-filled recipes with author, description, ingredients and instructions, following the fields of the Recipe model.
 - All relevant fields including HTML-formatted content (I.e. ordered and unordered list tags and list items)
 
 ---
 
 ## Wireframes
-ireframes and mockups created with [Canva](https://www.canva.com/) and [Website Mockup Generator](https://websitemockupgenerator.com/).
+Wireframes created with [miro.com](https://miro.com/).
 
-<details>
-<summary>Click to view wireframes</summary>
-
-**Mobile**  
-![Mobile wireframe](README-folder/wireframes/mobile-wireframe.jpg)
-
-**Desktop**  
-![Desktop wireframe](README-folder/wireframes/desktop-wireframe.jpg)
-</details>
+![Corazon de patata wireframes](README-folder/wireframes.webp)
 
 ---
 
 ## Technologies Used
 
 - Languages: HTML5, CSS3, JS, Python
-- [GitHub](https://github.com/) -  to host the project
-- [Visual Studio Code](https://code.visualstudio.com/download) - IDE connected to GitHub codespaces
-- [canva.com](https://canva.com/) - to edit the logo
-- [coolors.co](https://coolors.co/) - Create the colour palette based on the logo
-- [Font Awesome](https://fontawesome.com/) - arrow icons on index.html and social icons on footer
+- [GitHub](https://github.com/) -  Used to host the project
+- [Visual Studio Code](https://code.visualstudio.com/download) - IDE connected
+- [canva.com](https://canva.com/) - Used to edit the logo
+- [coolors.co](https://coolors.co/) - Used to create the colour palette based on the logo
+- [Font Awesome](https://fontawesome.com/) - Star icons on ratings
 - [Django 5.2](https://docs.djangoproject.com/en/5.2/) - Used for responsive design and UI components.
 - [Heroku](https://www.heroku.com/) - Used to deploy the project
 - [Cloudinary](https://cloudinary.com/) - Used to host static images
-- [Django Allauth](https://docs.allauth.org/en/latest/)
+- [Django Allauth](https://docs.allauth.org/en/latest/) - Used for user authentication and account management.
 - [Bootstrap 5.3](https://getbootstrap.com/) - Used for responsive design and UI components.
 - [AJAX](https://developer.mozilla.org/en-US/docs/Glossary/AJAX) - Used to enable asynchronous updates for ratings.
 - [Google Fonts](https://fonts.google.com/) - Used to customize the project's fonts. 
@@ -203,8 +195,9 @@ ireframes and mockups created with [Canva](https://www.canva.com/) and [Website 
 - [Google's Inspect Element](https://developer.chrome.com/docs/devtools) - to debug code and see console logs and errors
 - [Chat GPT](https://chatgpt.com/) and [Claude AI](https://claude.ai/) - Used to explain concepts that were not so obvious and as a very useful aid in debugging.
 - [tabletomarkdown.com](https://tabletomarkdown.com/convert-spreadsheet-to-markdown/): to easily generate my tables by importing spreadsheets.
-- [Markdown TOC generator](https://bitdowntoc.derlin.ch/)
+- [Markdown TOC generator](https://bitdowntoc.derlin.ch/) - Used to automatically generate a table of contents 
 - [Autoprefixer](https://autoprefixer.github.io/): to parse my CSS file and add the needed prefixes for browser compatibility.  
+- [miro.com](https://miro.com/): to generate the ERD and wireframes
 
 ---
 
@@ -220,23 +213,27 @@ Recipe_detail.html:
     ![valid recipe_detail.html](README-folder/validation/html-recipe_detail-validation.png)  
 - CSS validated with: [W3C Validator](https://validator.w3.org/) 
     ![CSS](README-folder/validation/valid-css.png)
-<p>
-    <a href="https://jigsaw.w3.org/css-validator/check/referer">
-        <img style="border:0;width:88px;height:31px"
-            src="https://jigsaw.w3.org/css-validator/images/vcss"
-            alt="Valid CSS!" />
-    </a>
-</p>
+        <p>
+            <a href="https://jigsaw.w3.org/css-validator/check/referer">
+                <img style="border:0;width:88px;height:31px"
+                    src="https://jigsaw.w3.org/css-validator/images/vcss"
+                    alt="Valid CSS!" />
+            </a>
+        </p>
 
 - JS validated with [JSHint](https://jshint.com/)  
 ![Valid JS](README-folder/validation/js-comments-validation.png)  
 
-- Python code checked with [PE8CI](https://pep8ci.herokuapp.com/#): 
-
-![Valid Python1](README-folder/validation/python-linter-1.png)  
-![Valid Python2](README-folder/validation/python-linter-2.png)  
-![Valid Python3](README-folder/validation/python-linter-3.png)  
-![Valid Python4](README-folder/validation/python-linter-4.png)  
+- Python code checked with [PE8CI](https://pep8ci.herokuapp.com/#):
+All python files were passed through the linter and cleaned until no errors were found. Here listed, are the ones with most code and which seemed relevant to share:  
+**Admin.py**  
+![Valid Python admin.py](README-folder/validation/python-linter-admin.png) 
+**models.py**  
+![Valid Python models.py](README-folder/validation/python-linter-models.png)  
+**urls.py**  
+![Valid Python urls.py](README-folder/validation/python-linter-urls.png)  
+**views.py**  
+![Valid Python views.py](README-folder/validation/python-linter-views.png)  
 
 ### Manual Testing
 <strong>Manual testing</strong> involves checking a project’s functionality by simulating user interactions, typically through clicking buttons, filling out forms, and testing the logic and responsiveness in different browsers and resolutions. It is an essential way to ensure that a product meets the user's expectations but comes with limitations. It can be time-consuming, resource-intensive, and prone to human error,  making it unreliable (especially for larger projects). Tiredness, biases, and/or oversight can lead to missed bugs and issues that can dampen the user’s experience. Manual testing is best deployed when we need to assess the user experience (UX), or when testing specific user stories that require human judgment to evaluate nuances, which would not be picked by automated tests. 
@@ -248,18 +245,20 @@ This site was thoroughly tested using a <strong>manual testing</strong> approach
 Please see below for the tests and final results:
 
 Tested across:
-- Chrome, Firefox, Safari (desktop & mobile)
+- Chrome, Safari (desktop & mobile)
 - All core views tested with both authenticated and guest users
 
 | Feature          | Test Scenario                           | Result |
 |------------------|------------------------------------------|--------|
 | Login Required   | Rating/commenting                        | Pass   |
-| Valid/Invalid Rating | Rating value out of range check     | Pass   |
 | Mobile UI        | Screen sizes < 768px                     | Pass   |
 | Admin Panel      | CRUD operations                          | Pass   |
 | Ratings           | Ratings persist across user sessions    | Pass   |
 | Form validation | Comments and ratings are sent successfully | Pass |
 | Message handling | Messages are displayed to the user on Post | Pass |
+| Log in buttons    | User can login from navbar, ratings and comment forms | Pass |
+| Images are loaded | Recipe images are loaded on Index and Recipe_detail | Failed (Fixed) |
+
 
 ### Fixed Bugs
 
