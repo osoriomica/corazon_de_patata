@@ -231,7 +231,7 @@ All python files were passed through the linter and cleaned until no errors were
 **models.py**  
 ![Valid Python models.py](README-folder/validation/python-linter-models.png)  
 **urls.py**  
-![Valid Python urls.py](README-folder/validation/python-linter-urls.png)  
+![Valid Python urls.py](README-folder/validation/python-linter-url.png)  
 **views.py**  
 ![Valid Python views.py](README-folder/validation/python-linter-views.png)  
 
@@ -275,7 +275,7 @@ Tested across:
 
 ---
 
-## 🚀 Deployment
+## Deployment
 <strong>Create a GitHub Repository</strong>  
 	1. Go to [GitHub website](https://github.com/) and navigate to the <strong>Settings</strong> tab.  
 	2. [Create a new public repository](https://github.com/new) using the format username.github.io, where username is your GitHub username.    
@@ -354,7 +354,7 @@ Visit http://127.0.0.1:8000 in your browser.
 
 ### Acknowledgements
 
-Thanks to my mentor and the Django community for consistent support and detailed documentation. Also, a big thanks to the developers of Allauth, Cloudinary, and all open-source tools that power this project.
+Thanks to my mentor and my teacher for their patience and guidance in this journey.
 
 ---
 ![logo](static/images/logo.png)
