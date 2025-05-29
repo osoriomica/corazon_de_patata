@@ -225,17 +225,27 @@ Recipe_detail.html:
 ![Valid JS](README-folder/validation/js-comments-validation.png)  
 
 - Python code checked with [PE8CI](https://pep8ci.herokuapp.com/#):
-All python files were passed through the linter and cleaned until no errors were found. Here listed, are the ones with most code and which seemed relevant to share:  
+All python files were passed through the linter and cleaned until no errors were found. Here listed, are the ones with most code and which seemed relevant to share:
+
 **Admin.py**  
+
 ![Valid Python admin.py](README-folder/validation/python-linter-admin.png) 
+
 **models.py**  
+
 ![Valid Python models.py](README-folder/validation/python-linter-models.png)  
-**urls.py**  
+
+**urls.py**
+  
 ![Valid Python urls.py](README-folder/validation/python-linter-url.png)  
+
 **views.py**  
+
 ![Valid Python views.py](README-folder/validation/python-linter-views.png)  
 
+
 ### Manual Testing
+
 <strong>Manual testing</strong> involves checking a project’s functionality by simulating user interactions, typically through clicking buttons, filling out forms, and testing the logic and responsiveness in different browsers and resolutions. It is an essential way to ensure that a product meets the user's expectations but comes with limitations. It can be time-consuming, resource-intensive, and prone to human error,  making it unreliable (especially for larger projects). Tiredness, biases, and/or oversight can lead to missed bugs and issues that can dampen the user’s experience. Manual testing is best deployed when we need to assess the user experience (UX), or when testing specific user stories that require human judgment to evaluate nuances, which would not be picked by automated tests. 
 
 <strong>Automated testing</strong>, on the other hand, uses code to run tests on software, providing a faster, scalable solution for detecting errors early in the development process. Automated tests can be written to target specific scenarios and run hundreds of tests in a short amount of time, making them ideal when verifying that new code hasn't broken existing functionality. However, automated tests are only as reliable as the test cases designed to check, and they do not assess the user experience. Therefore, a combination of manual and automated testing is often the best approach, where automated testing handles repetitive tasks and error detection; manual testing focuses on areas where human insight and user experience are critical. 
